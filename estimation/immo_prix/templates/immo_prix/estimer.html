@@ -1,0 +1,8 @@
+<h1>questionnaire sur les descriptif de votre logementNotes des utilisateurs</h1>
+<form method='POST'> 
+    {%csrf_token %}
+    {{form.as_p}}
+    <button type='submit'> valider les information et accéder à votre estimation</button>
+</form> 
+
+{% comment %} <a href="{% url 'notes_ciblees' user %}">voir mes notes associées à ce client</a> {% endcomment %}

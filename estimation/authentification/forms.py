@@ -30,3 +30,4 @@ class LoginForm(forms.Form):
     # ou une méthode "POST" >>> pour alimenter en données"
     
     #  if request.method == 'POST': >>> vérifie qu'on est en face d'une requête post!
+    # si oui executera le code; sinon va voir ce qui se passse ds else!!
