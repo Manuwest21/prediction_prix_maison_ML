@@ -18,7 +18,7 @@ import os
  
 
 
-with open ('immo_prix/modelo.pkl','rb') as file:
+with open ('immo_prix/modeleuro.pkl','rb') as file:
      model=pickle.load(file)
 
 
@@ -149,6 +149,7 @@ def questionnaire (request):
     return render (request, 'immo_prix/questionnaire.html')
     
 def infos_form(request):
+    form=Ask_logement(request.POST)
     zipcode = int(request.POST['code_postal'])
     view = int(request.POST['vue'])
     waterfront =int( request.POST['vue_sur_mer'])
@@ -156,10 +157,7 @@ def infos_form(request):
     surface_15 = int(request.POST['surface_terrain_15'])
     grade = int(request.POST['notation'])
     bathrooms = int(request.POST['salle_de_bain'])
-    # with open('chemin/vers/fichier.pickle', 'rb') as f:
-    #         mon_objet = pickle.load(f) 
-    # with open(model, "rb") as f:
-    #     modeli = pickle.load(f)
+    # form.save()
     
     data = {'zipcode': [zipcode],
         'view': [view],
@@ -168,6 +166,10 @@ def infos_form(request):
         'surface_15': [surface_15],
         'grade': [grade],
         'bathrooms': [bathrooms]}
+    # with open('chemin/vers/fichier.pickle', 'rb') as f:
+    #         mon_objet = pickle.load(f) 
+    # with open(model, "rb") as f:
+    #     modeli = pickle.load(f)
     # print (data)
     # bathrooms","surface", "surface_15","zipcode","grade","waterfront","view"
     # data_2=[[bathrooms,surface, surface_15,zipcode,grade,waterfront,view]]
@@ -175,7 +177,7 @@ def infos_form(request):
     df = pd.DataFrame(data, index=[0])
     
     
-    with open ('immo_prix/modelo.pkl','rb') as file:
+    with open ('immo_prix/modelok.pkl','rb') as file:
         model=pickle.load(file)
     
     y_pred=model.predict(df)

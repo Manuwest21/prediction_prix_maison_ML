@@ -2,11 +2,11 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 vue= (
         
-        (98178, 'pas de vue particulière'),
+   ( 1, 'pas de vue particulière'),
      
-        (98125, 'vue passable'),
-        (98028, 'belle vue'),
-        (98136, 'trés belle vue'))
+        (2, 'vue passable'),
+        (3, 'belle vue'),
+        (4, 'trés belle vue'))
 
 
 vue_mer= (
@@ -101,6 +101,7 @@ class Formu(models.Model):
     #     on_delete=models.CASCADE,
     #     null=True)
     title = models.CharField(max_length=100)
+    tit = models.CharField(max_length=100)
     content = models.TextField(default='Notes client:')
     creation_date = models.DateTimeField(auto_now_add=True)
     

@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>infos_form</title>
-</head>
-<body>
-   la prédiction de de ce logement est : {{rslt}}
+{% extends "immo_prix/base.html" %}
 
 
 
+{% block content %}
+   votre estimation pour les caractéristiques du logement saisi est de : {{rslt}} euros
+
+
+<h1> et voilà pour votre estimation, n'hésitez pas à en faire nouvelles, l'équipe "esti_easy_price" est là pour vous!</h1>
 
 </body>
 </html>
+{% endblock %}

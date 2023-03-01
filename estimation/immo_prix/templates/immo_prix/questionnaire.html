@@ -1,4 +1,26 @@
-<!DOCTYPE html>
+
+
+
+<tbody>
+    {% for ch in champs %}
+    <tr>
+    <td>{{ ch.day }}</td>
+    <td>{{ ch.time }}</td>
+    <td>{{ ch.time_ordered }}</td>
+    <td>{{ ch.user }}</td>
+
+
+
+    <!-- <td><a href="{% url 'add_note' ch.user %}"> note en plus</a></td> -->
+    {% endfor %}
+    </tbody>
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,4 +47,4 @@
 
 
 </body>
-</html>
+</html> -->

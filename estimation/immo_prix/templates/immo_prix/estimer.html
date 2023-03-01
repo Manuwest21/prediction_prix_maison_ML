@@ -1,7 +1,7 @@
 
+{% extends "immo_prix/base.html" %}
 
-
-
+{% block content %}
 <h1>questionnaire sur les descriptif de votre logement</h1>
 <form action="{% url 'infos_form' %}"form method='POST'> 
 
@@ -11,7 +11,7 @@
     <button type='submit'> valider mes informations sur le logement </button>
     {% comment %} <a href="{% url 'rslt_estimation'  %}"> voir mon estimation</a> {% endcomment %}
 </form> 
-
+{% endblock %}
 {% comment %} <a href="{% url 'notes_ciblees' user %}">voir mes notes associées à ce client</a> {% endcomment %}
 
 {% comment %} #url 'infos_form' {% endcomment %}
