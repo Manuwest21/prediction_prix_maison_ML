@@ -16,11 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from immo_prix import views
+from immo_prix.views import HomeView, ResultView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.home, name='home'),
     path('contact/', views.contact, name='contact'),
     path('estimer/', views.estimer, name='estimer'),
-    path('rslt_estimation/', views.rslt_estimation, name='rslt_estimation')
+    
+    #path('rslt_estimation/', ResultView.as_view (), name='rslt_estimation')
+    # path('rslt_estimation/', views.rslt_estimation, name='rslt_estimation'),
+    path('rslt_estimation/', views.rslt_estimation, name='rslt_estimation'),
+    path('estimer/rslt_estimation/', views.rslt_estimation, name='rslt_estimation'),
+    path('questionnaire', views.questionnaire, name='questionnaire'),
+    path('infos_form', views.infos_form, name='infos_form')
 ]

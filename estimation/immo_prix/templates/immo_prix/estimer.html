@@ -1,8 +1,17 @@
-<h1>questionnaire sur les descriptif de votre logementNotes des utilisateurs</h1>
-<form method='POST'> 
+
+
+
+
+<h1>questionnaire sur les descriptif de votre logement</h1>
+<form action="{% url 'infos_form' %}"form method='POST'> 
+
     {%csrf_token %}
-    {{form.as_p}}
-    <button type='submit'> valider les information et accéder à votre estimation</button>
+    {{form.as_p}} 
+    
+    <button type='submit'> valider mes informations sur le logement </button>
+    {% comment %} <a href="{% url 'rslt_estimation'  %}"> voir mon estimation</a> {% endcomment %}
 </form> 
 
 {% comment %} <a href="{% url 'notes_ciblees' user %}">voir mes notes associées à ce client</a> {% endcomment %}
+
+{% comment %} #url 'infos_form' {% endcomment %}
