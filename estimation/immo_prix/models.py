@@ -128,7 +128,9 @@ class Champs(models.Model):
    notation = models.IntegerField(validators=[MaxValueValidator(13),
             MinValueValidator(1)
         ])
-   
+   estimation_prix=models.IntegerField(validators=[MaxValueValidator(500000000),
+            MinValueValidator(30)], blank=True, null=True)
+        
    
    
    

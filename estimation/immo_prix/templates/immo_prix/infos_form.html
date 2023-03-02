@@ -5,9 +5,16 @@
 {% block content %}
    votre estimation pour les caractéristiques du logement saisi est de : {{rslt}} euros
 
-
+<br><br><br><br><br><br>
 <h1> et voilà pour votre estimation, n'hésitez pas à en faire nouvelles, l'équipe "esti_easy_price" est là pour vous!</h1>
 
+
+
+<br><br><br><br><br><br>
+<a href="{% url 'estimer'  %}">Retourner faire une estimation</a>
+
+<br><br><br><br><br><br>
+<a href="{% url 'rslt_estimation'%}">accés à mes anciennes estimations</a>
 </body>
 </html>
 {% endblock %}

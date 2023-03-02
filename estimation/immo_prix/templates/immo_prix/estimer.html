@@ -2,6 +2,47 @@
 {% extends "immo_prix/base.html" %}
 
 {% block content %}
+<div style="background-image:url('/static/immo_prix/images/maison-prairie.jpg');background-size:cover;background-repeat:no-repeat;background-position:center center;background-color:#c2d69b;height:100vh;display:flex;justify-content:center;align-items:center;">
+    <div style="background-color:rgba(255,255,255,0.8);padding:30px;border-radius:10px;">
+        <h1 style="text-align:center;">Questionnaire pour accéder à votre estimation</h1>
+        <form action="{% url 'infos_form' %}" method='POST'> 
+
+            {% csrf_token %}
+            {{form.as_p}} 
+            
+            <div style="text-align:center;margin-top:20px;">
+                <button type='submit' style="padding:10px 20px;border-radius:5px;background-color:#4CAF50;color:white;">Valider mes informations sur le logement</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+{% comment %} {% extends "immo_prix/base.html" %}
+
+{% block content %}
+<div style="background-color: #00FF00; background-image: url('https://exemple.com/maison-dans-la-prairie.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100vh;">
+    <h1>questionnaire sur le descriptif de votre logement pour accéder à votre estimation</h1>
+    <form action="{% url 'infos_form' %}" method='POST'> 
+        {% csrf_token %}
+        {{ form.as_p }} 
+        <button type='submit'>valider mes informations sur le logement</button>
+    </form> 
+</div>
+{% endblock %}
+ {% endcomment %}
+
+
+
+
+{% comment %} 
+{% extends "immo_prix/base.html" %}
+
+{% block content %}
 <h1>questionnaire sur les descriptif de votre logement</h1>
 <form action="{% url 'infos_form' %}"form method='POST'> 
 
@@ -10,8 +51,7 @@
     
     <button type='submit'> valider mes informations sur le logement </button>
     {% comment %} <a href="{% url 'rslt_estimation'  %}"> voir mon estimation</a> {% endcomment %}
-</form> 
-{% endblock %}
+{% comment %} </form> 
 {% comment %} <a href="{% url 'notes_ciblees' user %}">voir mes notes associées à ce client</a> {% endcomment %}
 
 {% comment %} #url 'infos_form' {% endcomment %}

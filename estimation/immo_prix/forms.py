@@ -20,6 +20,6 @@ class Ask_logement(ModelForm):
    
    class Meta:
       model= Champs 
-      fields = '__all__'
+      exclude = ['estimation_prix']
       
       

@@ -28,7 +28,7 @@ urlpatterns = [
     #path('rslt_estimation/', ResultView.as_view (), name='rslt_estimation')
     # path('rslt_estimation/', views.rslt_estimation, name='rslt_estimation'),
     path('rslt_estimation/', views.rslt_estimation, name='rslt_estimation'),
-    path('estimer/rslt_estimation/', views.rslt_estimation, name='rslt_estimation'),
+    # path('estimer/rslt_estimation/', views.rslt_estimation, name='rslt_estimation'),
     path('questionnaire', views.questionnaire, name='questionnaire'),
     path('infos_form', views.infos_form, name='infos_form')
 ]

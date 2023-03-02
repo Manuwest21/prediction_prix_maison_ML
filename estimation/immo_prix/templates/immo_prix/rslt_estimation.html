@@ -1,1 +1,53 @@
-<p> mon estimation est : {{ rslt }}</p>
+{% comment %} #<p> mon estimation est : {{ rslt }}</p> {% endcomment %}
+
+
+<table>
+    <thead>
+      <tr>
+        <th>Code postal</th>
+        <th>Vue sur mer</th>
+        <th>Vue</th>
+        <th>Surface habitable</th>
+        <th>Surface terrain</th>
+        <th>Surface terrain 15</th>
+        <th>Notation</th>
+        <th>Estimation prix</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for champ in rslt %}
+      <tr>
+        <td>{{ champ.code_postal }}</td>
+        <td>{{ champ.vue_sur_mer }}</td>
+        <td>{{ champ.vue }}</td>
+        <td>{{ champ.surface_habitable }}</td>
+        <td>{{ champ.surface_terrain }}</td>
+        <td>{{ champ.surface_terrain_15 }}</td>
+        <td>{{ champ.notation }}</td>
+        <td>{{ champ.estimation_prix }}</td>
+        
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <br>
+  <a href="{% url 'estimer'  %}">Retourner faire une estimation</a>
+
+
+{% comment %} <tbody>
+    {% for champ in rslt %}
+    <tr>
+    <td>{{ champ.code_postal }}</td>
+    <td>{{ champ.vue_sur_mer }}</td>
+    <td>{{ champ.vue }}</td>
+    <td>{{ champ.surface_habitable }}</td>
+    <td>{{ champ.surface_terrain }}</td>
+    <td>{{ champ.surface_terrain_15 }}</td>
+    <td>{{ champ.notation }}</td>
+    <td>{{ champ.estimation_prix }}</td>
+    <td><a href="{% url 'estimer'  %}"> retourner faire une estimation</a></td>
+    {% endfor %}
+    </tbody> {% endcomment %}

@@ -13,6 +13,7 @@ import joblib
 from joblib import load
 import pickle
 import os
+from .models import Champs
 # model=load('./models/modeli.pkl')
 # model=pickle.load(open('/home/apprenant/Documents/estimation_projet/prediction_prix_maison_ML/estimation/immo_prix/models/modeli.pkl', 'rb'))
  
@@ -150,6 +151,7 @@ def questionnaire (request):
     
 def infos_form(request):
     form=Ask_logement(request.POST)
+    form.save(commit=False)
     zipcode = int(request.POST['code_postal'])
     view = int(request.POST['vue'])
     waterfront =int( request.POST['vue_sur_mer'])
@@ -157,8 +159,9 @@ def infos_form(request):
     surface_15 = int(request.POST['surface_terrain_15'])
     grade = int(request.POST['notation'])
     bathrooms = int(request.POST['salle_de_bain'])
-    # form.save()
-    
+    # id= int(request.POST[
+    objet=form.save()
+    id= objet.id
     data = {'zipcode': [zipcode],
         'view': [view],
         'waterfront': [waterfront],
@@ -174,6 +177,7 @@ def infos_form(request):
     # bathrooms","surface", "surface_15","zipcode","grade","waterfront","view"
     # data_2=[[bathrooms,surface, surface_15,zipcode,grade,waterfront,view]]
         # bathrooms","surface", "surface_15","zipcode","grade","waterfront","view"
+        
     df = pd.DataFrame(data, index=[0])
     
     
@@ -184,13 +188,23 @@ def infos_form(request):
     y_pred=y_pred.round()
     y_pred = int(y_pred[0])
     y_pred_str = str(y_pred).replace('[','').replace(']','').replace('.','')
+    
+    cham = Champs.objects.get(id=id)
+    cham.estimation_prix=y_pred
+    cham.save()
+    
     # print(y_pred)
     return render (request, 'immo_prix/infos_form.html', {'rslt':y_pred})
 
 
 def rslt_estimation (request):
+    
+    rslt= Champs.objects.all()
+    
+    
+    return render (request, 'immo_prix/rslt_estimation.html', {'rslt':rslt})
  
-        nom = request.POST('username')
+        # nom = request.POST('username')
         # email = request.POST.POST('email')
     # username=request.POST['code_postal']
     #pickled_model=pickle.load(open('modeli.pkl', 'rb'))
@@ -198,7 +212,7 @@ def rslt_estimation (request):
   
 #   else: 
 #       nom='rien'
-        return render (request, 'immo_prix/rslt_estimation.html', {'rslt':nom})
+        #return render (request, 'immo_prix/rslt_estimation.html', {'rslt':rslt})
 # def contact(request):
 
 #   # add these print statements so we can take a look at `request.method` and `request.POST`
