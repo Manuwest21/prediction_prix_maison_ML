@@ -19,7 +19,7 @@ from .models import Champs
  
 
 
-with open ('immo_prix/modeleuro.pkl','rb') as file:
+with open ('immo_prix/final.pkl','rb') as file:
      model=pickle.load(file)
 
 

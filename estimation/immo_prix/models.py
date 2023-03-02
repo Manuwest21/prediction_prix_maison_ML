@@ -114,22 +114,22 @@ class Champs(models.Model):
             # MinValueValidator(1)
         
    surface_habitable = models.IntegerField(validators=[MaxValueValidator(5000),
-            MinValueValidator(30)
+            MinValueValidator(15)
         ])
    surface_terrain= models.IntegerField(validators=[MaxValueValidator(1000),
-            MinValueValidator(1)
+            MinValueValidator(-2)
         ])
    surface_terrain_15 = models.IntegerField(validators=[MaxValueValidator(1000),
-            MinValueValidator(10)
+            MinValueValidator(-2)
         ])
    salle_de_bain = models.IntegerField(validators=[MaxValueValidator(10),
-            MinValueValidator(1)
+            MinValueValidator(0)
         ])
    notation = models.IntegerField(validators=[MaxValueValidator(13),
             MinValueValidator(1)
         ])
    estimation_prix=models.IntegerField(validators=[MaxValueValidator(500000000),
-            MinValueValidator(30)], blank=True, null=True)
+            MinValueValidator(-200000)], blank=True, null=True)
         
    
    

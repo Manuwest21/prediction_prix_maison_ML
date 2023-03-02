@@ -22,6 +22,7 @@ from immo_prix.views import HomeView, ResultView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.home, name='home'),
+    path('', views.estimer, name='estimer'),
     path('contact/', views.contact, name='contact'),
     path('estimer/', views.estimer, name='estimer'),
     
