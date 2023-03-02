@@ -185,7 +185,7 @@ def infos_form(request):
         model=pickle.load(file)
     
     y_pred=model.predict(df)
-    y_pred=y_pred.round()
+    y_predi=y_pred.round()
     y_pred = int(y_pred[0])
     y_pred_str = str(y_pred).replace('[','').replace(']','').replace('.','')
     
@@ -194,7 +194,7 @@ def infos_form(request):
     cham.save()
     
     # print(y_pred)
-    return render (request, 'immo_prix/infos_form.html', {'rslt':y_pred})
+    return render (request, 'immo_prix/infos_form.html', {'rslt':y_predi})
 
 
 def rslt_estimation (request):

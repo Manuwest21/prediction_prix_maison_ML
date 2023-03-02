@@ -1,14 +1,31 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 vue= (
-        
-   ( 1, 'pas de vue particulière'),
+         (0, 'vue désagréable'),
+         ( 1, 'pas de vue particulière'),
      
         (2, 'vue passable'),
         (3, 'belle vue'),
         (4, 'trés belle vue'))
 
-
+grade= (
+         
+         ( 1, '1'),
+     
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+         ( 6, '6'),
+     
+        (7, '7'),
+        (8, '8'),
+        (9, '9'),
+          ( 10, '10'),
+     
+        (11, '11'),
+        (12, '12'),
+        (13, '13'))
 vue_mer= (
         
         (0, 'pas de vue sur mer'),
@@ -116,18 +133,27 @@ class Champs(models.Model):
    surface_habitable = models.IntegerField(validators=[MaxValueValidator(5000),
             MinValueValidator(15)
         ])
-   surface_terrain= models.IntegerField(validators=[MaxValueValidator(1000),
+   surface_terrain= models.IntegerField(validators=[MaxValueValidator(1000000),
             MinValueValidator(-2)
         ])
-   surface_terrain_15 = models.IntegerField(validators=[MaxValueValidator(1000),
+   surface_terrain_15 = models.IntegerField(validators=[MaxValueValidator(100000),
             MinValueValidator(-2)
         ])
-   salle_de_bain = models.IntegerField(validators=[MaxValueValidator(10),
+   
+   salle_de_bain = models.IntegerField(validators=[MaxValueValidator(8),
             MinValueValidator(0)
         ])
-   notation = models.IntegerField(validators=[MaxValueValidator(13),
-            MinValueValidator(1)
-        ])
+   models.DecimalField(max_digits=3, decimal_places=2, validators=[
+        MinValueValidator(0),
+        MaxValueValidator(8),
+    ])
+#    salle_de_bain = models.IntegerField(validators=[MaxValueValidator(10),
+#             MinValueValidator(0)
+#         ])
+   notation= models.IntegerField(choices=grade)
+#    notation = models.IntegerField(validators=[MaxValueValidator(13),
+#             MinValueValidator(1)
+#         ])
    estimation_prix=models.IntegerField(validators=[MaxValueValidator(500000000),
             MinValueValidator(-200000)], blank=True, null=True)
         
