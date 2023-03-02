@@ -1,20 +1,16 @@
 {% extends "immo_prix/base.html" %}
 
-
-
 {% block content %}
-   votre estimation pour les caractéristiques du logement saisi est de : {{rslt}} euros
+<div style="background-color: #2e7d32; color: white; padding: 50px;">
+    <h1 style="font-size: 3em; text-align: center;">Votre estimation pour le logement saisi est de : <br>{{rslt}} euros </h1>
 
-<br><br><br><br><br><br>
-<h1> et voilà pour votre estimation, n'hésitez pas à en faire nouvelles, l'équipe "esti_easy_price" est là pour vous!</h1>
-
-
-
-<br><br><br><br><br><br>
-<a href="{% url 'estimer'  %}">Retourner faire une estimation</a>
-
-<br><br><br><br><br><br>
-<a href="{% url 'rslt_estimation'%}">accés à mes anciennes estimations</a>
-</body>
-</html>
-{% endblock %}
+    <br><br><br><br><br><br>
+    <h2 style="font-size: 1.5em; text-align: center;">Et voilà pour votre estimation, n'hésitez pas à en faire de nouvelles. L'équipe "esti_easy_price" est là pour vous !</h2>
+    
+    <br><br><br><br><br><br>
+    <a href="{% url 'estimer'  %}" style="font-size: 1.2em; text-align: center; display: block; margin: 0 auto;">Retourner faire une estimation</a>
+    
+    <br><br><br><br><br><br>
+    <a href="{% url 'rslt_estimation'%}" style="font-size: 1.2em; text-align: center; display: block; margin: 0 auto;">Accéder à mes anciennes estimations</a>
+   </div>
+   {% endblock %}    

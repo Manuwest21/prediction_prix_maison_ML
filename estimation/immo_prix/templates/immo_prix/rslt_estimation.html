@@ -1,41 +1,41 @@
-{% comment %} #<p> mon estimation est : {{ rslt }}</p> {% endcomment %}
+{% comment %} {% extends "immo_prix/base.html" %} {% endcomment %}
 
 
-<table>
-    <thead>
-      <tr>
-        <th>Code postal</th>
-        <th>Vue sur mer</th>
-        <th>Vue</th>
-        <th>Surface habitable</th>
-        <th>Surface terrain</th>
-        <th>Surface terrain 15</th>
-        <th>Notation</th>
-        <th>Estimation prix</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      {% for champ in rslt %}
-      <tr>
-        <td>{{ champ.code_postal }}</td>
-        <td>{{ champ.vue_sur_mer }}</td>
-        <td>{{ champ.vue }}</td>
-        <td>{{ champ.surface_habitable }}</td>
-        <td>{{ champ.surface_terrain }}</td>
-        <td>{{ champ.surface_terrain_15 }}</td>
-        <td>{{ champ.notation }}</td>
-        <td>{{ champ.estimation_prix }}</td>
-        
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  <br>
-  <br>
-  <br>
-  <a href="{% url 'estimer'  %}">Retourner faire une estimation</a>
-
+<div style="background-color: #BFEFFF; padding: 20px;">
+    <table style="margin: auto; width: 80%; border-collapse: collapse; text-align: center;">
+      <thead>
+        <tr>
+          <th style="background-color: #3F51B5; color: white; padding: 10px;">Code postal</th>
+          <th style="background-color: #3F51B5; color: white; padding: 10px;">Vue sur mer</th>
+          <th style="background-color: #3F51B5; color: white; padding: 10px;">Vue</th>
+          <th style="background-color: #3F51B5; color: white; padding: 10px;">Surface habitable</th>
+          <th style="background-color: #3F51B5; color: white; padding: 10px;">Surface terrain</th>
+          <th style="background-color: #3F51B5; color: white; padding: 10px;">Surface terrain 15</th>
+          <th style="background-color: #3F51B5; color: white; padding: 10px;">Notation</th>
+          <th style="background-color: #3F51B5; color: white; padding: 10px;">Estimation prix</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for champ in rslt %}
+        <tr>
+          <td style="border: 1px solid black; padding: 10px;">{{ champ.code_postal }}</td>
+          <td style="border: 1px solid black; padding: 10px;">{{ champ.vue_sur_mer }}</td>
+          <td style="border: 1px solid black; padding: 10px;">{{ champ.vue }}</td>
+          <td style="border: 1px solid black; padding: 10px;">{{ champ.surface_habitable }}</td>
+          <td style="border: 1px solid black; padding: 10px;">{{ champ.surface_terrain }}</td>
+          <td style="border: 1px solid black; padding: 10px;">{{ champ.surface_terrain_15 }}</td>
+          <td style="border: 1px solid black; padding: 10px;">{{ champ.notation }}</td>
+          <td style="border: 1px solid black; padding: 10px;">{{ champ.estimation_prix }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <a href="{% url 'estimer'  %}" style="text-align: center; display: block;">Retourner faire une estimation</a>
+  </div>
+  
 
 {% comment %} <tbody>
     {% for champ in rslt %}
