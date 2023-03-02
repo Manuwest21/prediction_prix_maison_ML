@@ -8,7 +8,11 @@ L'objectif principal de ce projet est de développer un algorithme de machine le
 Algorithme choisi
 
 Après avoir étudié les différentes possibilités, nous avons choisi l'algorithme KNNRegressor qui permet de se baser sur un nombre de voisins issus du dataset ayant les caractéristiques les plus proches. Nous avons constaté que l'utilisation de cet algorithme permettait d'obtenir le meilleur score de "prédiction" en fonction du coefficient de détermination r2.
+  
+  
+Utilisation du questionnaire
 
+le dataset portait sur des prix en dollards et une mesure de surface en pieds carré, nous avons converti le modéle d'estimation avec qu'un utilisateur  européen puisse avoir une estimation de prix en euros et une mesure de surface en metre carré.
 
 Implémentation
 
